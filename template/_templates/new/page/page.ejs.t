@@ -4,7 +4,7 @@ to: src/routes/<%%= name %%>.svelte
 <script <%= features.prismic ? 'context="module"' : '' %>>
   import Meta from 'svelte-meta';
   import type { Load } from '@sveltejs/kit';
-<% if (features.prismic) -%>
+<% if (features.prismic) { -%>
   import { queryAt } from '../lib/prismic';
   import type { <%%= h.changeCase.pascal(name) %%> } from '../../@types/_generated/prismic';
 
