@@ -1,4 +1,5 @@
 <script>
+  import { SITE_URL } from 'src/lib/consts';
   import Meta from 'svelte-meta';
   import '../styles';
 </script>
@@ -27,8 +28,8 @@
 </style>
 
 <Meta
-  siteUrl="<%= url %>"
-  logo="<%= url %>/icon.png"
+  siteUrl={SITE_URL}
+  logo="{SITE_URL}/icon.png"
   openGraph={{
     type: 'website',
     locale: 'en_NZ'

@@ -1,3 +1,4 @@
+export const SITE_URL = '<%= url %>';
 <% if (features.prismic) { -%>
 export const PRISMIC_API = `https://<%= prismic %>.cdn.prismic.io/api/v2`;
 <% } -%>
