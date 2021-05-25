@@ -1,0 +1,60 @@
+{
+  "name": "<%= packageName %>",
+  "description": "<%= description %>",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "storybook": "start-storybook -p 3002 -s ./public --ci --quiet",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "format": "prettier --write --plugin-search-dir=. .",
+<% if (features.prismic) { -%>
+      "typegen": "graphql-codegen",
+<% } -%>
+    "generate": "hygen new"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "next",
+    "svelte": "^3.34.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+<% if (features.prismic) { -%>
+    "@graphql-codegen/cli": "^1.21.0",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
+<% } -%>
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-svelte-csf": "^1.0.0",
+    "@storybook/svelte": "^6.2.9",
+    "@sveltejs/adapter-static": "^1.0.0-next.10",
+    "@types/html-minifier": "^4.0.0",
+    "@types/node": "^14.14.0",
+    "@types/prismic-dom": "^2.1.0",
+    "babel-loader": "^8.2.2",
+<% if (features.prismic) { -%>
+    "codegen-prismic-fetch": "^1.0.3",
+<% } -%>
+    "cssremedy": "^0.1.0-beta.2",
+    "graphql": "^15.5.0",
+    "html-minifier": "^4.0.0",
+    "hygen": "^6.0.0",
+    "pollen-css": "^1.1.0",
+    "postcss-load-config": "^3.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "~2.2.1",
+    "prettier-plugin-svelte": "^2.2.0",
+<% if (features.prismic) { -%>
+    "prismic-dom": "^2.2.5",
+    "prismic-javascript": "^3.0.2",
+    "svelte-imgix": "^2.4.1",
+<% } -%>
+    "svelte-media": "^0.0.4",
+    "svelte-meta": "^1.0.2",
+    "svelte-preprocess": "^4.0.0",
+    "typescript": "^4.0.0"
+  }
+}

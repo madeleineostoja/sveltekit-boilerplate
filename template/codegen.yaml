@@ -1,0 +1,12 @@
+customFetch: 'codegen-prismic-fetch'
+schema: https://<%= prismic %>.cdn.prismic.io/graphql
+generates:
+  ./@types/_generated/prismic.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      maybeValue: T
+hooks:
+  afterAllFileWrite:
+    - prettier --write

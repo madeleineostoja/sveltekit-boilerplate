@@ -1,0 +1,12 @@
+# Deps
+node_modules
+
+# Runtime
+.DS_Store
+*.log
+
+# Build
+/.svelte-kit
+/build
+/functions
+

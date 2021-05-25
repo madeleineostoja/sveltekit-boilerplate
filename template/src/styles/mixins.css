@@ -1,0 +1,24 @@
+/**
+ * Typesets
+ */
+
+/**
+ * Grids
+ */
+.pageGrid {
+  display: grid;
+  position: relative;
+  grid-template-columns: var(--grid-page);
+  & > * {
+    grid-column: 2 / 3;
+  }
+}
+
+.fullbleed {
+  grid-column: 1 / -1 !important;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: var(--grid-content);
+}

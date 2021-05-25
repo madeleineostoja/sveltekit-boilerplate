@@ -1,0 +1,77 @@
+/**
+ * Basics
+ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  color: var(--color-text);
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+svg {
+  fill: currentColor;
+}
+
+section {
+  content-visibility: auto;
+}
+
+/**
+ * Respect reduce motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/**
+ * Reset margins
+ */
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+pre {
+  margin: 0;
+}
+
+/**
+ * Reset headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}

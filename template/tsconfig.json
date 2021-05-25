@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // Modules
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2019",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Type checking
+    "strict": true,
+    "allowJs": true,
+    "lib": ["dom", "esnext", "webworker"],
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "skipLibCheck": true,
+
+    // Misc
+    "sourceMap": true,
+    "baseUrl": "."
+  },
+  "include": ["src", "@types", ".storybook", "components"]
+}
