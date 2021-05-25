@@ -1,7 +1,7 @@
 ---
 to: src/routes/<%%= name %%>.svelte
 ---
-<script <%= features.prismic ? 'context="module"' : '' %>>
+<script <%- features.prismic ? 'context="module"' : '' %>>
   import Meta from 'svelte-meta';
   import type { Load } from '@sveltejs/kit';
 <% if (features.prismic) { -%>

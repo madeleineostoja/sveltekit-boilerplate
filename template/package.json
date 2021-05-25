@@ -11,7 +11,7 @@
     "preview": "svelte-kit preview",
     "format": "prettier --write --plugin-search-dir=. .",
 <% if (features.prismic) { -%>
-      "typegen": "graphql-codegen",
+    "typegen": "graphql-codegen",
 <% } -%>
     "generate": "hygen new"
   },
