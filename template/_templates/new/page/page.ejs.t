@@ -9,7 +9,7 @@ to: src/routes/<%%= name %%>.svelte
   import type { <%%= h.changeCase.pascal(name) %%> } from '$types/_generated/prismic';
 
   export const load: Load = async ({ fetch }) => {
-    loadData(`/<%= name %>/<%= name %>.json`, fetch);
+    return loadData(`/<%= name %>/<%= name %>.json`, fetch);
   }
 </script>
 
