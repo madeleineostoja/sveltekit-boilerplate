@@ -19,7 +19,11 @@
 
     // Misc
     "sourceMap": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "$src/*": ["./src/*"],
+      "$types/*": ["./@types/*"]
+    }
   },
   "include": ["src", "@types", ".storybook", "components"]
 }

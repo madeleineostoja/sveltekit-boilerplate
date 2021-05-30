@@ -1,7 +1,7 @@
 <script>
-  import { SITE_URL } from 'src/lib/consts';
+  import { SITE_URL } from '$src/lib/consts';
   import Meta from 'svelte-meta';
-  import '../styles';
+  import '$src/styles';
 </script>
 
 <style>

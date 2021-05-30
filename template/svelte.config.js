@@ -1,11 +1,19 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
   kit: {
     adapter: adapter(),
-    target: '#svelte'
+    vite: {
+      resolve: {
+        alias: {
+          $src: path.resolve('./src'),
+          $types: path.resolve('./@types')
+        }
+      }
+    }
   },
   preprocess: preprocess({
     postcss: true,

@@ -1,4 +1,4 @@
 import watchMedia from 'svelte-media';
-import { customMedia } from '../styles/breakpoints.json';
+import { customMedia } from '$src/styles/breakpoints.json';
 
 export const media = watchMedia(customMedia);
