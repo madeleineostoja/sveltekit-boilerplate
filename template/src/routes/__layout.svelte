@@ -1,7 +1,13 @@
 <script>
+  import { browser } from '$app/env';
+  import { prefetchRoutes } from '$app/navigation';
   import { SITE_URL } from '$src/lib/consts';
   import Meta from 'svelte-meta';
   import '$src/styles';
+
+  if (browser) {
+    prefetchRoutes();
+  }
 </script>
 
 <style>

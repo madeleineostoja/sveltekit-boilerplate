@@ -49,8 +49,8 @@
     "prettier-plugin-svelte": "^2.2.0",
 <% if (features.prismic) { -%>
     "prismic-dom": "^2.2.5",
-    "prismic-javascript": "^3.0.2",
     "svelte-imgix": "^2.4.1",
+    "ts-prismic": "^0.3.0",
 <% } -%>
     "svelte-media": "^0.0.4",
     "svelte-meta": "^1.0.2",

@@ -1,37 +1,46 @@
-import type { PrismicImg } from './types';
 import PrismicDOM from 'prismic-dom';
-import Prismic from 'prismic-javascript';
 import type { QueryOptions } from 'prismic-javascript/types/ResolvedApi';
-import type Predicates from 'prismic-javascript/types/Predicates';
 import { placeholder } from 'svelte-imgix';
-import { PRISMIC_API } from '../consts';
+import * as prismic from 'ts-prismic';
+import { PRISMIC_REPO } from '../consts';
+import type { PrismicImg } from './types';
+
+/** Init Prismic API */
+const ref = (async () => {
+  const endpoint = prismic.defaultEndpoint(PRISMIC_REPO),
+    repository = (await fetch(prismic.buildRepositoryURL(endpoint)).then(
+      (res: Response) => res.json()
+    )) as prismic.Response.Repository,
+    { ref } = repository.refs.find((ref) => ref.isMasterRef)!;
+
+  return ref;
+})();
 
 /** Route resolving */
 const routes = (uid: string) => ({
-  home: '/',
-  collection: `/collections/${uid}`,
-  photo: `/photos/${uid}`,
   default: `/${uid}`
 });
 
 /** Richtext HTML parser */
-const htmlElements = (element?: any, content?: any, children?: any) => ({
-  heading2: /* html */ `
-    <h2 class="typeset-heading2" style="margin-top: 2em;">${children}</h2>
-  `
-});
+const htmlElements = (element?: any, content?: any, children?: any) => ({});
 
 /** Queries */
 export async function query(
-  query: (prismic: typeof Predicates) => any,
-  options?: QueryOptions
+  query: (predicates: typeof prismic.predicate) => string,
+  fetcher: any,
+  options?: prismic.QueryParams
 ) {
-  const api = await Prismic.getApi(PRISMIC_API),
-    result = await api.query(query(Prismic.Predicates), {
-      ref: api.masterRef.ref,
-      pageSize: 100,
-      ...options
-    });
+  const result = await fetcher(
+    prismic.buildQueryURL(
+      prismic.defaultEndpoint(PRISMIC_REPO),
+      await ref,
+      query(prismic.predicate),
+      {
+        pageSize: 100,
+        ...options
+      }
+    )
+  ).then((res: Response) => res.json());
 
   if (!result) {
     throw new Error('Unpublished document');
@@ -43,8 +52,13 @@ export async function query(
 }
 
 /** Predicates.at shorthand */
-export function queryAt(path: string, value: string, options?: QueryOptions) {
-  return query((prismic) => prismic.at(path, value), options);
+export function queryAt(
+  path: string,
+  value: string,
+  fetcher: any,
+  options?: QueryOptions
+) {
+  return query((prismic) => prismic.at(path, value), fetcher, options);
 }
 
 /** Document resolver */

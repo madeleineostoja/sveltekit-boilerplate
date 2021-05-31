@@ -3,13 +3,14 @@ to: src/routes/<%%= name %%>.svelte
 ---
 <script <%- features.prismic ? 'context="module"' : '' %>>
   import Meta from 'svelte-meta';
-  import type { Load } from '@sveltejs/kit';
 <% if (features.prismic) { -%>
-  import { loadData } from '$src/lib/utils';
+  import type { Load } from '@sveltejs/kit';
+  import { queryAt } from '$src/lib/prismic';
   import type { <%%= h.changeCase.pascal(name) %%> } from '$types/_generated/prismic';
 
   export const load: Load = async ({ fetch }) => {
-    return loadData(`/<%= name %>/<%= name %>.json`, fetch);
+    const { data } = await queryAt('document.type', <%%= prismic %%>, fetch);
+    return data ? { props: { data } } : undefined;
   }
 </script>
 
