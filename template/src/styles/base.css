@@ -6,11 +6,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   color: var(--color-text);
+  height: 100%;
 }
 
 body {
   position: relative;
-  min-height: fill-available;
+  min-height: stretch;
   color: var(--color-text);
   font-family: var(--font-family-sans);
 }

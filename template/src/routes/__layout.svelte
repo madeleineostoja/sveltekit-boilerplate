@@ -11,25 +11,17 @@
 </script>
 
 <style>
-  .grid {
+  main {
+    position: relative;
     display: grid;
     grid-template-columns: var(--grid-page);
     grid-auto-rows: min-content;
+    align-items: start;
+    min-height: 100%;
+    padding: var(--spacing-3) 0;
     & > :global(*) {
       grid-column: 2 / 3;
     }
-  }
-
-  main {
-    position: relative;
-    min-height: 100vh;
-    padding: var(--spacing-3) 0;
-  }
-
-  .content {
-    grid-column: 1 / -1;
-    align-items: start;
-    align-self: stretch;
   }
 </style>
 
@@ -42,8 +34,6 @@
   }}
 />
 
-<main class="grid">
-  <div class="grid content">
-    <slot />
-  </div>
+<main>
+  <slot />
 </main>
