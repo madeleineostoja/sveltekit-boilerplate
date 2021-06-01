@@ -1,9 +1,19 @@
 import PrismicDOM from 'prismic-dom';
-import type { QueryOptions } from 'prismic-javascript/types/ResolvedApi';
 import { placeholder } from 'svelte-imgix';
 import * as prismic from 'ts-prismic';
 import { PRISMIC_REPO } from '../consts';
 import type { PrismicImg } from './types';
+
+/** Default maxage of page data */
+export const maxage = 300;
+
+/** Route resolving */
+const routes = (uid: string) => ({
+  default: `/${uid}`
+});
+
+/** Richtext HTML parser */
+const htmlElements = (element?: any, content?: any, children?: any) => ({});
 
 /** Init Prismic API */
 const ref = (async () => {
@@ -15,14 +25,6 @@ const ref = (async () => {
 
   return ref;
 })();
-
-/** Route resolving */
-const routes = (uid: string) => ({
-  default: `/${uid}`
-});
-
-/** Richtext HTML parser */
-const htmlElements = (element?: any, content?: any, children?: any) => ({});
 
 /** Queries */
 export async function query(
@@ -56,7 +58,7 @@ export function queryAt(
   path: string,
   value: string,
   fetcher: any,
-  options?: QueryOptions
+  options?: prismic.QueryParams
 ) {
   return query((prismic) => prismic.at(path, value), fetcher, options);
 }
