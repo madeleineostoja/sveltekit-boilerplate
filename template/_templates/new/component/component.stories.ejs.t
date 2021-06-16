@@ -13,4 +13,3 @@ to: src/components/<%%= name %%>/<%%= name %%>.stories.svelte
 </Template>
 
 <Story name="Default" />
-
