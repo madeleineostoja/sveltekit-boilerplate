@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
-    "storybook": "start-storybook -p 3002 -s ./public --ci --quiet",
+    "storybook": "start-storybook -p 3002 -s ./static --ci --quiet",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "format": "prettier --write --plugin-search-dir=. .",

@@ -6,7 +6,7 @@ addons.setConfig({
     base: 'light',
     brandTitle: '<%= name %>',
     brandUrl: '<%= url %>',
-    brandImage: '../static/icon.png',
+    brandImage: './icon.png',
     colorPrimary: '<%= brandColour %>',
     colorSecondary: '<%= brandColour %>'
   }),
