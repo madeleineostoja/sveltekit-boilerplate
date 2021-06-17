@@ -53,7 +53,7 @@
     "svelte-imgix": "^2.4.1",
     "ts-prismic": "^0.3.0",
 <% } -%>
-    "svelte-media": "^0.0.4",
+    "svelte-media": "^0.1.4",
     "svelte-meta": "^1.0.2",
     "svelte-preprocess": "^4.0.0",
     "typescript": "^4.0.0"
